@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>انتخاب تایمر</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>انتخاب زمان بازی</h1>
+        <form id="timerForm">
+            <label>
+                <input type="radio" name="timer" value="30" checked> 30 دقیقه
+            </label>
+            <br>
+            <label>
+                <input type="radio" name="timer" value="10"> 10 دقیقه
+            </label>
+            <br><br>
+            <button type="submit">شروع بازی</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('timerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const selectedTime = document.querySelector('input[name="timer"]:checked').value;
+            localStorage.setItem('selectedTimer', selectedTime); // ذخیره زمان انتخاب‌شده
+            window.location.href = "game.html"; // انتقال به صفحه بازی
+        });
+    </script>
+</body>
+</html>
